@@ -14,8 +14,18 @@ public class PrintPolaroid : MonoBehaviour
     [SerializeField] private GameObject cameraFlash;
     [SerializeField] private float flashTime;
 
+    private bool flashEnabled = true;
     private SpriteRenderer spriteRenderer;
     private GameObject createdPolaroid;
+
+    public void Update()
+    {
+        // Toggle flash effect
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            flashEnabled = !flashEnabled;
+        }
+    }
 
     public void LateUpdate()
     {
@@ -24,7 +34,9 @@ public class PrintPolaroid : MonoBehaviour
             cameraAnimator.CanTakePhoto = false;
             cameraAnimator.SetCameraState(false);
             
-            StartCoroutine(CameraFlashEffect());
+            // Flash effect
+            if (flashEnabled)
+                StartCoroutine(CameraFlashEffect());
             
             // Create and set up render texture
             RenderTexture renderTexture = new RenderTexture(resolutionWidth, resolutionHeight, 24);
