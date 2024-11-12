@@ -12,6 +12,7 @@ public class PrintPolaroid : MonoBehaviour
 
     [Header("Flash Effect")]
     [SerializeField] private GameObject cameraFlash;
+    [SerializeField] private GameObject flashIcon;
     [SerializeField] private float flashTime;
 
     private bool flashEnabled = true;
@@ -24,6 +25,7 @@ public class PrintPolaroid : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F))
         {
             flashEnabled = !flashEnabled;
+            flashIcon.SetActive(flashEnabled);
         }
     }
 

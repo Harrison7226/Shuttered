@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7551646945335272680}
   - component: {fileID: 3753654500430821079}
   - component: {fileID: 7875678116102981345}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Polaroid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1451203041861073115}
   - component: {fileID: 2618472481616276024}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SpriteMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5883788511422655329}
   - component: {fileID: 1675638848390192315}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
