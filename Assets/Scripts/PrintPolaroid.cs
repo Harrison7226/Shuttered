@@ -42,6 +42,7 @@ public class PrintPolaroid : MonoBehaviour
             
             // Create and set up render texture
             RenderTexture renderTexture = new RenderTexture(resolutionWidth, resolutionHeight, 24);
+            RenderTexture temporary = Camera.main.targetTexture;
             Camera.main.targetTexture = renderTexture;
 
             // Create texture to store screenshot
@@ -59,6 +60,7 @@ public class PrintPolaroid : MonoBehaviour
             Camera.main.targetTexture = null;
             RenderTexture.active = null;
             Destroy(renderTexture);
+            Camera.main.targetTexture = temporary;
 
             // Create sprite from screenshot
             Sprite sprite = Sprite.Create(screenShot, new Rect(0, 0, screenShot.width, screenShot.height), new Vector2(0.5f, 0.5f), 1000f);
