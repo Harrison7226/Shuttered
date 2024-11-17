@@ -31,9 +31,9 @@ public class PrintPolaroid : MonoBehaviour
 
     public void LateUpdate()
     {
-        if (cameraAnimator.CanTakePhoto && Input.GetMouseButtonDown(0))
+        if (cameraAnimator.canTakePhoto && Input.GetMouseButtonDown(0))
         {
-            cameraAnimator.CanTakePhoto = false;
+            cameraAnimator.canTakePhoto = false;
             cameraAnimator.SetCameraState(false);
             
             // Flash effect

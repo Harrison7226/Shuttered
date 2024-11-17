@@ -5,32 +5,28 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class CameraAnimator : MonoBehaviour
 {
+    [Header("Animation")]
     [SerializeField] private Animator animator;
-    [SerializeField] private GameObject cameraOverlay, shutter;
-    [SerializeField] private PostProcessVolume volume;
+    private bool printing;
+    private bool canAimCamera = true;
+    public bool canTakePhoto;
 
     [Header("Audio")]
     [SerializeField] private AudioSource developSFX;
     [SerializeField] private AudioSource shutterSFX;
 
+    [Header("Camera Overlay")]
+    [SerializeField] private GameObject cameraOverlay, shutter;
+    [SerializeField] private PostProcessVolume volume;
+    private Vignette vignette;
+
     [Header("Zoom Effect")]
     [SerializeField] private int zoom = 20;
-    [SerializeField] private int normal = 60;
     [SerializeField] private float smooth = 5;
-
-    private Vignette vignette;
-    private bool canTakePhoto, printing;
-
-    public bool CanTakePhoto
-    {
-        get => canTakePhoto;
-        set => canTakePhoto = value;
-    }
 
     // Start is called before the first frame update
     void Start()
     {
-        CanTakePhoto = false;
         vignette = volume.profile.GetSetting<Vignette>();
     }
 
@@ -40,16 +36,17 @@ public class CameraAnimator : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             // Check if camera is already taking photo
-            if (animator.GetBool("TakingPhoto") && !printing)
+            if (animator.GetBool("TakingPhoto") && !printing && canTakePhoto)
             {
                 animator.SetBool("TakingPhoto", false);
                 SetCameraState(false);
-                CanTakePhoto = false;
+                canTakePhoto = false;
             }
             // Check if camera is not taking photo
-            else if (!animator.GetBool("TakingPhoto"))
+            else if (!animator.GetBool("TakingPhoto") && canAimCamera)
             {
                 animator.SetBool("TakingPhoto", true);
+                canAimCamera = false;
             }
         }
 
@@ -63,21 +60,19 @@ public class CameraAnimator : MonoBehaviour
         {
             animator.enabled = true;
         }
-
-        // Check to remove camera overlay if not taking photo
-        // Fixes bug where camera overlay is still active after leaving camera mode
-        if (!animator.GetBool("TakingPhoto"))
-        {
-            SetCameraState(false);
-            CanTakePhoto = false;
-        }
     }
 
     // Called by 'TakePhoto' animation
     public void OnCameraActive()
     {
         SetCameraState(true);
-        CanTakePhoto = true;
+        canTakePhoto = true;
+    }
+
+    // Called by 'BackFromTake' animation
+    public void OnCameraDeactive()
+    {
+        canAimCamera = true;
     }
 
     // Called by 'PrintPhoto' animation
@@ -89,8 +84,9 @@ public class CameraAnimator : MonoBehaviour
     // Called by 'PrintPhoto' animation
     public void OnPrint()
     {
-        printing = false;
         animator.SetBool("TakingPhoto", false);
+        canAimCamera = true;
+        printing = false;
     }
 
     // Set camera overlay and vignette state
