@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 36123d8b016994185907d063426e2551, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -671,6 +671,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9e37ba4c6207d4de0811e8c8c281e08f, type: 3}
   m_PrefabInstance: {fileID: 1585417406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &362629212 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7421033346236238759, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+  m_PrefabInstance: {fileID: 1074910323}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &362629217
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362629212}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.57063395, y: 7, z: 0.5427051}
+  m_Center: {x: 0, y: 3.5, z: -0.028647453}
 --- !u!1 &391293638
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,7 +1321,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4cc7c43e4a13f4967b1e674e484ad9b9, type: 2}
     - target: {fileID: 919132149155446097, guid: 34766853cf8a64e269256288a2dae96e, type: 3}
       propertyPath: m_Name
-      value: Bush_01
+      value: Bush
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1971,6 +1997,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065033993}
   m_CullTransparentMesh: 1
+--- !u!1001 &1074910323
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      propertyPath: m_Name
+      value: Tree
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7421033346236238759, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 362629217}
+  m_SourcePrefab: {fileID: 100100000, guid: 2587470a3f03c48b4acb8393b7b5a40d, type: 3}
 --- !u!1 &1076989532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,7 +2869,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f8f67793ff6424810aa0d75cda7f8b70, type: 2}
     - target: {fileID: 919132149155446097, guid: 333fe56513c0f4b50b509defdced65e6, type: 3}
       propertyPath: m_Name
-      value: Bush_02
+      value: Shrub
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3656,3 +3742,4 @@ SceneRoots:
   - {fileID: 1756063789}
   - {fileID: 720683387}
   - {fileID: 1529290863}
+  - {fileID: 1074910323}
