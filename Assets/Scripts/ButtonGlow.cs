@@ -1,50 +1,39 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class ButtonHoverGlow : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public TextMeshProUGUI buttonText;
-    public Color normalGlowColor = Color.clear;
-    public Color hoverGlowColor = Color.white;
-    public float normalGlowPower = 0.0f;
-    public float hoverGlowPower = 1.5f;
-    public float normalOpacity = 0.8f;
-    public float hoverOpacity = 1.0f;
-
-    private Material textMaterial;
+    public Material videoMaterial; // Assign the material used by the video
+    public float hoverGlowIntensity = 5f; // Glow intensity when hovering
+    private float defaultGlowIntensity; // Original glow intensity
 
     void Start()
     {
-        // Get the TextMeshPro material
-        textMaterial = buttonText.fontMaterial;
-        // Set initial glow color, power, and opacity
-        textMaterial.SetColor("_GlowColor", normalGlowColor);
-        textMaterial.SetFloat("_GlowPower", normalGlowPower);
-        SetTextOpacity(normalOpacity);
+        // Get the default glow intensity from the material
+        if (videoMaterial != null && videoMaterial.HasProperty("_GlowIntensity"))
+        {
+            defaultGlowIntensity = videoMaterial.GetFloat("_GlowIntensity");
+        }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    // Triggered when the mouse pointer enters the button
+public void OnPointerEnter(PointerEventData eventData)
+{
+    Debug.Log("Pointer entered the button");
+    if (videoMaterial != null && videoMaterial.HasProperty("_GlowIntensity"))
     {
-        // Change glow color, power, and opacity on hover
-        textMaterial.SetColor("_GlowColor", hoverGlowColor);
-        textMaterial.SetFloat("_GlowPower", hoverGlowPower);
-        SetTextOpacity(hoverOpacity);
+        videoMaterial.SetFloat("_GlowIntensity", hoverGlowIntensity);
     }
+}
 
-    public void OnPointerExit(PointerEventData eventData)
+public void OnPointerExit(PointerEventData eventData)
+{
+    Debug.Log("Pointer exited the button");
+    if (videoMaterial != null && videoMaterial.HasProperty("_GlowIntensity"))
     {
-        // Reset glow color, power, and opacity when hover ends
-        textMaterial.SetColor("_GlowColor", normalGlowColor);
-        textMaterial.SetFloat("_GlowPower", normalGlowPower);
-        SetTextOpacity(normalOpacity);
+        videoMaterial.SetFloat("_GlowIntensity", defaultGlowIntensity);
     }
+}
 
-    private void SetTextOpacity(float opacity)
-    {
-        // Set the opacity of the text (affects the face color alpha)
-        Color faceColor = textMaterial.GetColor("_FaceColor");
-        faceColor.a = opacity;
-        textMaterial.SetColor("_FaceColor", faceColor);
-    }
 }

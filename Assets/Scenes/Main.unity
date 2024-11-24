@@ -1609,6 +1609,7 @@ GameObject:
   - component: {fileID: 963194231}
   - component: {fileID: 963194233}
   - component: {fileID: 963194234}
+  - component: {fileID: 963194235}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1837,6 +1838,20 @@ MonoBehaviour:
   cameraFlash: {fileID: 797565597}
   flashIcon: {fileID: 446543663}
   flashTime: 0.3
+--- !u!114 &963194235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2158e5fb73c8e4114845a502cdcf748e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  polaroidPrefab: {fileID: 5573509025650960810, guid: 3e45b6b3dee9143de8db34e2f73a792f, type: 3}
+  polaroidParent: {fileID: 1631248364}
 --- !u!1 &1065033993
 GameObject:
   m_ObjectHideFlags: 0

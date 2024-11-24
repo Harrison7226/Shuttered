@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +31,7 @@ public class PhotoCapture : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            Debug.Log("Photo added");
             if (!viewingPhoto)
             {
                 StartCoroutine(CapturePhoto());
@@ -52,19 +52,30 @@ public class PhotoCapture : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         Rect regionToRead = new Rect(0, 0, Screen.width, Screen.height);
-        
         screenCapture.ReadPixels(regionToRead, 0, 0, false);
         screenCapture.Apply();
-        ShowPhoto();
+
+        // Create a sprite from the captured photo
+        Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        Debug.Log("Photo added in photoCapture");
+        // Add the photo to the PhotoManager
+        PhotoManager.AddPhoto(photoSprite);
+
+        ShowPhoto(photoSprite);
     }
 
-    void ShowPhoto()
+    void ShowPhoto(Sprite photo)
     {
-        Sprite photoSprite = Sprite.Create(screenCapture, new Rect(0.0f, 0.0f, screenCapture.width, screenCapture.height), new Vector2(0.5f, 0.5f), 100.0f);
-        photoDisplayArea.sprite = photoSprite;
-
+        photoDisplayArea.sprite = photo;
         photoFrame.SetActive(true);
         fadingAnimation.Play("PhotoFade");
+    }
+
+    void RemovePhoto()
+    {
+        viewingPhoto = false;
+        photoFrame.SetActive(false);
+        cameraUI.SetActive(true);
     }
 
     IEnumerator CameraFlashEffect()
@@ -73,12 +84,5 @@ public class PhotoCapture : MonoBehaviour
         cameraFlash.SetActive(true);
         yield return new WaitForSeconds(flashTime);
         cameraFlash.SetActive(false);
-    }
-
-    void RemovePhoto()
-    {
-        viewingPhoto = false;
-        photoFrame.SetActive(false);
-        cameraUI.SetActive(true);
     }
 }
