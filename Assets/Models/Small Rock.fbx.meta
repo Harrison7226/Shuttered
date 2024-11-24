@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 333fe56513c0f4b50b509defdced65e6
+guid: 939ceecae073543d3b2374e8724dccde
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Bush.001
-    second: {fileID: 2100000, guid: f8f67793ff6424810aa0d75cda7f8b70, type: 2}
+      name: Rock
+    second: {fileID: 2100000, guid: 3405dc2efa45e447eaa39ecfd996e0fd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
