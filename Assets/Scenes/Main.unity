@@ -5964,9 +5964,10 @@ GameObject:
   - component: {fileID: 616686714}
   - component: {fileID: 616686713}
   - component: {fileID: 616686716}
+  - component: {fileID: 616686717}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6031,6 +6032,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1487002507}
+  - {fileID: 788219446}
   - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
@@ -6050,6 +6052,31 @@ MonoBehaviour:
   interactionDistance: 2
   interactionUI: {fileID: 1782490258}
   interactionText: {fileID: 1076989534}
+--- !u!114 &616686717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616686712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f0ea9e66bdac41b19d6ad23908b78ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 788219445}
+  grassFootsteps:
+  - {fileID: 8300000, guid: 22f942f98180946b0856bbb413642688, type: 3}
+  - {fileID: 8300000, guid: 1fcdffbf23fc74c95bdc61df03fe03c6, type: 3}
+  - {fileID: 8300000, guid: cb739b0d22ae74f2d884c561af8849a5, type: 3}
+  - {fileID: 8300000, guid: d318f1a879a5b4bc18b67a6461d9c60e, type: 3}
+  woodFootsteps:
+  - {fileID: 8300000, guid: a12fd7557d57b4dbd896773c047a3b91, type: 3}
+  - {fileID: 8300000, guid: aa85427161d0b4e2d8ab16a809f26a02, type: 3}
+  - {fileID: 8300000, guid: 5f2e132f95c7440b2a5fe33590f14391, type: 3}
+  - {fileID: 8300000, guid: c389469a6bd784d50b31160fc1f04983, type: 3}
+  pitchRange: 0.2
+  volumeRange: 0.2
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6412,6 +6439,134 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730570781}
   m_CullTransparentMesh: 1
+--- !u!1 &788219444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 788219446}
+  - component: {fileID: 788219445}
+  m_Layer: 0
+  m_Name: Footsteps SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &788219445
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788219444}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &788219446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788219444}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 616686715}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797565597
 GameObject:
   m_ObjectHideFlags: 0
@@ -6701,6 +6856,26 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 928013bb6d62440538bee91640ecc9ed, type: 3}
       propertyPath: m_Name
       value: Dock
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 928013bb6d62440538bee91640ecc9ed, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 1642327355821528388, guid: 928013bb6d62440538bee91640ecc9ed, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 4131082733712468615, guid: 928013bb6d62440538bee91640ecc9ed, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 7312450499871892551, guid: 928013bb6d62440538bee91640ecc9ed, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122363429942836559, guid: 928013bb6d62440538bee91640ecc9ed, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7164,9 +7339,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: eb33f62cb3add494ebf73684248c3165, type: 3}
+      propertyPath: m_TagString
+      value: Wood
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eb33f62cb3add494ebf73684248c3165, type: 3}
       propertyPath: m_Name
       value: Firewatch Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eb33f62cb3add494ebf73684248c3165, type: 3}
+      propertyPath: m_TagString
+      value: Wood
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -8558,7 +8741,7 @@ GameObject:
   - component: {fileID: 1756063787}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
