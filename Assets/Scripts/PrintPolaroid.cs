@@ -33,6 +33,9 @@ public class PrintPolaroid : MonoBehaviour
     {
         if (cameraAnimator.canTakePhoto && Input.GetMouseButtonDown(0))
         {
+            // Check if the camera took a photo of a target
+            PhotoDetection.Instance.DetectPhotographedObject();
+
             cameraAnimator.canTakePhoto = false;
             cameraAnimator.SetCameraState(false);
             
