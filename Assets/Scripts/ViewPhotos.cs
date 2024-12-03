@@ -10,7 +10,7 @@ public class ViewPhotos : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private GameObject createdPolaroid;
 
-    private int currentIndex = 0; // Index of the currently viewed photo
+    private int currentIndex = 3; // Index of the currently viewed photo
 
 
     private List<GameObject> spawnedPolaroids = new List<GameObject>(); // Track spawned polaroids
@@ -32,7 +32,6 @@ public class ViewPhotos : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q) && galleryEnabled == false) {
-            currentIndex = PhotoManager.GetPhotoCount() - 1;
             galleryEnabled = true;
             DisplayPhotos(currentIndex);
         }
@@ -51,67 +50,78 @@ public class ViewPhotos : MonoBehaviour
 
     }
 
-void DisplayPhotos(int index)
-{
+void DisplayPhotos(int index) {
     int photoCount = PhotoManager.GetPhotoCount();
 
     Camera playerCamera = Camera.main;
 
-    for (int i = 0; i < photoCount; i++)
-    {
-        // Retrieve the sprite for the current photo index
-        Sprite sprite = PhotoManager.GetPhoto(index);
+    for (int i = 0; i < index; i++) {
+        Sprite sprite = PhotoManager.GetPhoto(i);
 
-        // Calculate base position in front of the camera
         Vector3 basePosition = playerCamera.transform.position + playerCamera.transform.forward * spawnDistance;
 
-        // Add offsets for side positioning and depth stacking
-        Vector3 sideOffset = playerCamera.transform.right * (i * sideDistanceIncrement); // Offset each photo to the side
-        Vector3 depthOffset = playerCamera.transform.forward * (i * depthOffsetIncrement); // Offset each photo slightly behind the last one
+        Vector3 sideOffset = playerCamera.transform.right * ((index - i)* (-1 * sideDistanceIncrement)); 
+        Vector3 depthOffset = playerCamera.transform.forward * ((index - i) * depthOffsetIncrement);
 
-        // Calculate final spawn position
         Vector3 spawnPosition = basePosition + sideOffset + depthOffset;
 
-        // Instantiate the polaroid prefab at the calculated position
         GameObject spawnedPolaroid = Instantiate(polaroidPrefab, spawnPosition, Quaternion.identity);
 
-        // Set the polaroid as a child of the camera to make it follow
         spawnedPolaroid.transform.SetParent(playerCamera.transform);
 
-        // Adjust local rotation to ensure proper alignment
-        spawnedPolaroid.transform.localRotation = Quaternion.identity; // Neutral rotation
-        spawnedPolaroid.transform.LookAt(playerCamera.transform); // Make it face the camera
-        spawnedPolaroid.transform.Rotate(270, 90, 90); // Flip to ensure the front faces the player
+        spawnedPolaroid.transform.localRotation = Quaternion.identity;
+        spawnedPolaroid.transform.LookAt(playerCamera.transform); 
+        spawnedPolaroid.transform.Rotate(270, 90, 90); 
 
-        // Assign the unique sprite to the polaroid's SpriteRenderer
         SpriteRenderer spriteRenderer = spawnedPolaroid.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
-        MeshRenderer meshRenderer = spawnedPolaroid.GetComponent<MeshRenderer>();
-        Material material = meshRenderer.material;
-        Color color = material.color; // Get the current color
-        color.a = 1f - (i * 0.05f); // Set the alpha
-        material.color = color; // Apply the modified color
 
         if (spriteRenderer != null)
         {
-            Color spriteColor = spriteRenderer.color; // Get the current color
-            spriteColor.a = 1f - (i * 0.05f); // Set the alpha (0 = fully transparent, 1 = fully opaque)
-            spriteRenderer.color = spriteColor; // Apply the modified color
+            Color spriteColor = spriteRenderer.color; 
+            spriteRenderer.color = spriteColor; 
             spriteRenderer.sprite = sprite;
         }
-
-        // Add the spawned polaroid to the list for later deletion
+        
         spawnedPolaroids.Add(spawnedPolaroid);
     }
+
+    for (int i = index; i < photoCount; i++) {
+        Sprite sprite = PhotoManager.GetPhoto(i);
+
+        Vector3 basePosition = playerCamera.transform.position + playerCamera.transform.forward * spawnDistance;
+
+        Vector3 sideOffset = playerCamera.transform.right * ((i - index) * sideDistanceIncrement); 
+        Vector3 depthOffset = playerCamera.transform.forward * ((i - index) * depthOffsetIncrement);
+
+        Vector3 spawnPosition = basePosition + sideOffset + depthOffset;
+
+        GameObject spawnedPolaroid = Instantiate(polaroidPrefab, spawnPosition, Quaternion.identity);
+
+        spawnedPolaroid.transform.SetParent(playerCamera.transform);
+
+        spawnedPolaroid.transform.localRotation = Quaternion.identity;
+        spawnedPolaroid.transform.LookAt(playerCamera.transform); 
+        spawnedPolaroid.transform.Rotate(270, 90, 90); 
+
+        SpriteRenderer spriteRenderer = spawnedPolaroid.transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+        {
+            Color spriteColor = spriteRenderer.color; 
+            spriteRenderer.color = spriteColor; 
+            spriteRenderer.sprite = sprite;
+        }
+        
+        spawnedPolaroids.Add(spawnedPolaroid);
+    }
+    
 }
     void DeleteAllPhotos()
     {
-        // Iterate through the list and destroy each polaroid
         foreach (GameObject polaroid in spawnedPolaroids)
         {
             Destroy(polaroid);
         }
-
-        // Clear the list
         spawnedPolaroids.Clear();
     }
     void ScrollToNextPhoto() {

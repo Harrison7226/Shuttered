@@ -9,7 +9,7 @@ public class PhotoManager : MonoBehaviour
     // Optionally, add helper methods to manage the gallery
     public static void AddPhoto(Sprite photo)
     {
-        PhotoGallery.Add(photo);
+        PhotoGallery.Insert(0,photo);
     }
     public static Sprite GetPhoto(int index)
     {
