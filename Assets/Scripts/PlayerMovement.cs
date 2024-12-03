@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    public KeybindManager keybindManager; 
+
     public Camera playerCamera;
     public float walkSpeed = 6f;
     public float runSpeed = 12f;

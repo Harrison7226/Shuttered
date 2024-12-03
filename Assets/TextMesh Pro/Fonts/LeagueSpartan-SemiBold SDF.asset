@@ -2669,7 +2669,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LeagueSpartan-SemiBold SDF Material
-  m_Shader: {fileID: 4800000, guid: ef49c1cdb2475e746a9fd4ee5af67210, type: 3}
+  m_Shader: {fileID: 4800000, guid: fe393ace9b354375a9cb14cdbbc28be4, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -2718,11 +2718,14 @@ Material:
     - _CullMode: 0
     - _CutOffY: 0.5
     - _Diffuse: 0.5
+    - _EdgeSoftness: 0.1
+    - _EdgeThreshold: 0.5
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GapSize: 0.02
     - _GlitchIntensity: 0.0001
+    - _GlitchOffset: 5
     - _GlowInner: 0.05
     - _GlowOffset: 0
     - _GlowOuter: 0.05

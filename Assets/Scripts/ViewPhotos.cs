@@ -10,7 +10,7 @@ public class ViewPhotos : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private GameObject createdPolaroid;
 
-    private int currentIndex = 3; // Index of the currently viewed photo
+    private int currentIndex = 0; // Index of the currently viewed photo
 
 
     private List<GameObject> spawnedPolaroids = new List<GameObject>(); // Track spawned polaroids
@@ -31,13 +31,16 @@ public class ViewPhotos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && galleryEnabled == false) {
-            galleryEnabled = true;
-            DisplayPhotos(currentIndex);
-        }
-        else if (Input.GetKeyDown(KeyCode.Q) && galleryEnabled == true) {
-            galleryEnabled = false;
-            DeleteAllPhotos();
+        KeyCode key = KeybindManager.Instance.GetKeyForAction("Open Gallery");
+        if (Input.GetKeyDown(key)){
+            if (galleryEnabled) {
+                    galleryEnabled = false;
+                    DeleteAllPhotos();
+            }
+            else {
+                galleryEnabled = true;
+                DisplayPhotos(currentIndex);
+            }
         }
         if (Input.GetKeyDown(KeyCode.O) && !isTransitioning)
         {
