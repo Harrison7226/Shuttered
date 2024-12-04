@@ -5,6 +5,8 @@ using UnityEngine;
 public class ViewPhotos : MonoBehaviour
 {
 
+    public AudioSource audioSource; // Reference to the AudioSource component
+    public AudioClip soundEffect;   // Reference to the sound effect
     [SerializeField] private GameObject polaroidPrefab;
     [SerializeField] private Transform polaroidParent;
     private SpriteRenderer spriteRenderer;
@@ -31,8 +33,10 @@ public class ViewPhotos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        KeyCode key = KeybindManager.Instance.GetKeyForAction("Open Gallery");
-        if (Input.GetKeyDown(key)){
+        KeyCode openGalleryKey = KeybindManager.Instance.GetKeyForAction("Open Gallery");
+        KeyCode moveBackwardKey = KeybindManager.Instance.GetKeyForAction("Move Backward");
+        KeyCode moveForwardKey = KeybindManager.Instance.GetKeyForAction("Move Forward");
+        if (Input.GetKeyDown(openGalleryKey)){
             if (galleryEnabled) {
                     galleryEnabled = false;
                     DeleteAllPhotos();
@@ -42,11 +46,11 @@ public class ViewPhotos : MonoBehaviour
                 DisplayPhotos(currentIndex);
             }
         }
-        if (Input.GetKeyDown(KeyCode.O) && !isTransitioning)
+        if (Input.GetKeyDown(moveBackwardKey) && !isTransitioning)
         {
             ScrollToNextPhoto(); // Scroll to the next photo
         }
-        if (Input.GetKeyDown(KeyCode.P) && !isTransitioning)
+        if (Input.GetKeyDown(moveForwardKey) && !isTransitioning)
         {
             ScrollToPreviousPhoto(); // Scroll to the previous photo
         }
@@ -132,6 +136,8 @@ void DisplayPhotos(int index) {
             currentIndex++;
             DeleteAllPhotos();
             DisplayPhotos(currentIndex);
+            audioSource.PlayOneShot(soundEffect);
+            
 
         }
     }
@@ -141,6 +147,7 @@ void DisplayPhotos(int index) {
             currentIndex--;
             DeleteAllPhotos();
             DisplayPhotos(currentIndex);
+            audioSource.PlayOneShot(soundEffect);
         }
     }
 }

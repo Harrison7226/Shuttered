@@ -51,7 +51,8 @@ public class CameraAnimator : MonoBehaviour
         }
 
         // Zoom effect when can take photo
-        if (Input.GetKey(KeyCode.Z) && canTakePhoto)
+        KeyCode zoomKey = KeybindManager.Instance.GetKeyForAction("Zoom");
+        if (Input.GetKey(zoomKey) && canTakePhoto)
         {
             animator.enabled = false; // Disable animator to allow changing field of view
             GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, zoom, Time.deltaTime * smooth);
