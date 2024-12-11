@@ -51,7 +51,12 @@ public class CameraAnimator : MonoBehaviour
         }
 
         // Zoom effect when can take photo
-        KeyCode zoomKey = KeybindManager.Instance.GetKeyForAction("Zoom");
+
+        KeyCode zoomKey = KeyCode.Z;
+        if (GameObject.Find("KeybindSwitcher") != null) {
+            zoomKey = KeybindManager.Instance.GetKeyForAction("Zoom");
+        }
+
         if (Input.GetKey(zoomKey) && canTakePhoto)
         {
             animator.enabled = false; // Disable animator to allow changing field of view

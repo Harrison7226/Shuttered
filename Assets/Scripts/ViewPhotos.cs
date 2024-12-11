@@ -32,11 +32,16 @@ public class ViewPhotos : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        KeyCode openGalleryKey = KeybindManager.Instance.GetKeyForAction("Open Gallery");
-        KeyCode moveBackwardKey = KeybindManager.Instance.GetKeyForAction("Move Backward");
-        KeyCode moveForwardKey = KeybindManager.Instance.GetKeyForAction("Move Forward");
-        if (Input.GetKeyDown(openGalleryKey)){
+    {   
+        KeyCode openGalleryKey = KeyCode.R;
+        KeyCode moveBackwardKey = KeyCode.Q;
+        KeyCode moveForwardKey = KeyCode.E;
+        if (GameObject.Find("KeybindSwitcher") != null) {
+            openGalleryKey = KeybindManager.Instance.GetKeyForAction("Open Gallery");
+            moveBackwardKey = KeybindManager.Instance.GetKeyForAction("Move Backward");
+            moveForwardKey = KeybindManager.Instance.GetKeyForAction("Move Forward");
+        }
+        if (Input.GetKeyDown(openGalleryKey)) {
             if (galleryEnabled) {
                     galleryEnabled = false;
                     DeleteAllPhotos();
