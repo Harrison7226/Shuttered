@@ -25,7 +25,9 @@ public class PhotoDetection : MonoBehaviour
         Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        int layerMask = ~LayerMask.GetMask("Player");
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             GameObject hitObject = hit.collider.gameObject;
             if (hitObject.GetComponent<PhotoTarget>())
