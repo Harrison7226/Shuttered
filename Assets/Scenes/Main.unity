@@ -273,6 +273,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 95372984}
   - {fileID: 1757698834}
   - {fileID: 391293639}
   - {fileID: 418442979}
@@ -309,7 +310,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &35951341
 MonoBehaviour:
@@ -491,12 +492,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95372981}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960, y: -540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 21924504}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &111792709
 GameObject:
@@ -5823,7 +5824,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b89a0f6138a84c64e83b93952b78ed4a, type: 3}
       propertyPath: m_Name
-      value: PlayerCar
+      value: Player's Car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8645,7 +8646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b89a0f6138a84c64e83b93952b78ed4a, type: 3}
       propertyPath: m_Name
-      value: LakeCar
+      value: Victim's Car
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8695,7 +8696,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 10, z: 10}
+  m_Size: {x: 15, y: 15, z: 15}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1585417406
 PrefabInstance:
@@ -8892,7 +8893,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1631248363
 GameObject:
@@ -9521,7 +9522,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1829888640
 Transform:
@@ -14532,7 +14533,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2037209249
 GameObject:
@@ -14924,21 +14925,20 @@ SceneRoots:
   m_Roots:
   - {fileID: 935942501}
   - {fileID: 21924504}
-  - {fileID: 95372984}
   - {fileID: 705507995}
   - {fileID: 1865447404}
   - {fileID: 616686715}
   - {fileID: 1756063789}
   - {fileID: 322508760}
   - {fileID: 1735395584}
-  - {fileID: 520863247}
-  - {fileID: 1572756508}
+  - {fileID: 149378529}
   - {fileID: 1516498219}
+  - {fileID: 520863247}
   - {fileID: 5687414}
   - {fileID: 1743324238}
+  - {fileID: 611504199}
   - {fileID: 1036771270}
   - {fileID: 1595213341}
+  - {fileID: 1572756508}
   - {fileID: 1902043500}
-  - {fileID: 149378529}
-  - {fileID: 611504199}
   - {fileID: 1829888640}
